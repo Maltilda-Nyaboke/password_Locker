@@ -27,3 +27,11 @@ class User:
        delete_user is the method used to remove a user from an account
        '''   
        User.user_list.remove(self)  
+
+class Credentials:
+     '''
+     class that will display the site where the username and password that were used to access it have been stored
+     '''  
+     credentials_list = [] 
+
+     def __init__(self,site_, username, password):    
