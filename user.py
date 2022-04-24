@@ -70,4 +70,15 @@ class Credentials:
           '''
           method to display the credentials
           '''
-          return cls.credentials_list       
+          return cls.credentials_list  
+   
+   def find_credentials(cls,site_name):
+        '''
+        method to find the credentials by the use of the name of the site
+        '''
+        for credential in cls.credentials_list:
+             if credential.site_name == site_name:
+                  return credential    
+
+   def gen_password(len):
+        chars = "ABCDEFGHLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz1234567890!#~$*/=?@"                  
