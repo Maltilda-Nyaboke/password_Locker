@@ -40,7 +40,7 @@ def del_credentials(credentials):
     '''
     function to delete site credentials
     '''
-    credentials.delete_user()
+    credentials.delete_credentials()
 
 def display_credentials(credentials):
     '''
@@ -48,11 +48,18 @@ def display_credentials(credentials):
     ''' 
     return Credentials.display_credentials()   
 
-def get_credentials(name):
+def get_credentials(username):
     '''
     function to retrieve credentials
     '''  
-    return Credentials.get_credentials(name)  
+    return Credentials.find_credentials(username)  
+
+def login(username, password):
+    return Credentials.verify_user(username, password) 
+
+def main():
+    print("Hello welcome to {}".format(Credentials.site_name))
+
 
 
     if __name__ == '__main__':
