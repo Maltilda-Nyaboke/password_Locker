@@ -11,12 +11,19 @@ def create_user(username, password):
     new_user = User(username, password)
     return new_user
 
-def save_user(username, password):
+def save_user(user):
     '''
-    create a method to save
-    
+    function to save the user
     '''
+    user.save_user()
 
+def del_user(user):
+    '''
+    function to delete a user
+    '''
+    user.delete_user()
+
+def get_user(user)    
 
 
     if __name__ == '__main__':
