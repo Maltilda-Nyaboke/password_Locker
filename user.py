@@ -1,3 +1,5 @@
+import string
+import random
 
 class User:
    '''
@@ -72,6 +74,7 @@ class Credentials:
           '''
           return cls.credentials_list  
    
+   @classmethod
    def find_credentials(cls,site_name):
         '''
         method to find the credentials by the use of the name of the site
@@ -80,5 +83,10 @@ class Credentials:
              if credential.site_name == site_name:
                   return credential    
 
-   def gen_password(len):
-        chars = "ABCDEFGHLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz1234567890!#~$*/=?@"                  
+   def gen_password():
+        chars = "ABCDEFGHLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz1234567890!#~$*/=?@"
+        password = " "
+        for i in range(len):
+            password += chars[random.randint(0, len(chars) - 1)]
+        return password
+                            
