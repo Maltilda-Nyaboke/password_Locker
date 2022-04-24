@@ -38,12 +38,38 @@ class TestUser(unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)  
 
+
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for credentials class behaviours.
+
+    '''
+    def setUp(self):
+        '''
+        initializing the credentials class
+        '''
+        self.new_credentials = Credentials("twitter", "Tilda", "Welcome!") 
+    
     def test_save_credentials(self):
         '''
         test used to save credentials
         '''
         self.new_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),1)    
+
+    def test_delete_credentials(self):
+        '''
+        test used to delete the stored credentials
+        '''
+        self.new_credentials.delete_credentials()
+        self.assertEqual(len(Credentials.credentials_list),1)    
+
+    def test_display_all_credentials(self):
+        '''
+        test used to dispaly all the credential lists stored in the list
+        '''
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+
 
 
 if __name__ == '__main__':
