@@ -6,6 +6,7 @@ class User:
    user_list = []
  
    def __init__(self,username,password):
+        
         '''
         use of the __init__method that helps in construction of an object
         Args:
@@ -16,6 +17,7 @@ class User:
         self.password = password
 
    def save_user(self):  
+        
         '''
         save_user which is the method used in saving the user contents in the user_list
         
@@ -23,18 +25,23 @@ class User:
         User.user_list.append(self) 
     
    def delete_user(self):
+       
        '''
        delete_user is the method used to remove a user from an account
        '''   
        User.user_list.remove(self)  
 
-class Credentials:
-     '''
-     class that will display the site where the username and password that were used to access it have been stored
-     '''  
-     credentials_list = [] 
 
-     def __init__(self,site_name, username, password):
+
+
+class Credentials:
+   '''
+   class that will display the site where the username and password that were used to access it have been stored
+   '''  
+   credentials_list = [] 
+
+   def __init__(self,site_name,username,password):
+          
           '''
         use of the __init__method that helps in construction of an object
         Args:
@@ -46,20 +53,20 @@ class Credentials:
           self.username = username
           self.password = password
 
-     def save_credentials(self):
+   def save_credentials(self):
           '''
           This method will save the credentials in the credentials_list
           '''  
           Credentials.credentials_list.append(self)   
 
-     def delete_credentials(self):
+   def delete_credentials(self):
           '''
           This method will delete the credentials in the credentials_list
           '''
           Credentials.credentials_list.remove(self)   
 
-     @classmethod  
-     def display_credentials(cls):
+   @classmethod  
+   def display_credentials(cls):
           '''
           method to display the credentials
           '''

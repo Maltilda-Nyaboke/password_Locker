@@ -1,5 +1,6 @@
 import unittest
-from user import Credentials, User
+from user import User
+from user import Credentials
 
 class TestUser(unittest.TestCase):
     
@@ -29,12 +30,15 @@ class TestUser(unittest.TestCase):
         test used to see if user can be saved in the empty user_list
         '''
         self.new_user.save_user() #saving a new user
-        self.assertEqual(len(User.user_list),1)
+        self.assertEqual(len(User.user_list),2)
 
     def test_delete_user(self):
         '''
         test used to see if the user's account can be deleted from the user_list
         '''  
+        self.new_user.save_user()
+        test_user = User("Tilda", "Welcome!")
+        test_user.save_user()
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)  
 
@@ -51,24 +55,27 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials = Credentials("twitter", "Tilda", "Welcome!") 
     
     def test_save_credentials(self):
-        '''
-        test used to save credentials
-        '''
-        self.new_credentials.save_credentials()
-        self.assertEqual(len(Credentials.credentials_list),1)    
+            '''
+            test used to save credentials
+            '''
+            self.new_credentials.save_credentials()
+            self.assertEqual(len(Credentials.credentials_list),2)    
 
     def test_delete_credentials(self):
-        '''
-        test used to delete the stored credentials
-        '''
-        self.new_credentials.delete_credentials()
-        self.assertEqual(len(Credentials.credentials_list),1)    
+            '''
+            test used to delete the stored credentials
+            '''
+            self.new_credentials.save_credentials()
+            test_credentials = Credentials("twitter","Tilda","Welcome!")
+            test_credentials.save_credentials()
+            self.new_credentials.delete_credentials()
+            self.assertEqual(len(Credentials.credentials_list),1)    
 
     def test_display_all_credentials(self):
-        '''
-        test used to dispaly all the credential lists stored in the list
-        '''
-        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+            '''
+            test used to dispaly all the credential lists stored in the list
+            '''
+            self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
 
 
