@@ -1,5 +1,5 @@
 import unittest
-from user import User
+from user import Credentials, User
 
 class TestUser(unittest.TestCase):
     
@@ -37,6 +37,13 @@ class TestUser(unittest.TestCase):
         '''  
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)  
+
+    def test_save_credentials(self):
+        '''
+        test used to save credentials
+        '''
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),1)    
 
 
 if __name__ == '__main__':

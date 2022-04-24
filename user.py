@@ -34,4 +34,20 @@ class Credentials:
      '''  
      credentials_list = [] 
 
-     def __init__(self,site_, username, password):    
+     def __init__(self,site_name, username, password):
+          '''
+        use of the __init__method that helps in construction of an object
+        Args:
+            site_name = new user site_name.
+            username = new user username.
+            password = new user password.
+        '''    
+          self.site_name = site_name
+          self.username = username
+          self.password = password
+
+     def save_credentials(self):
+          '''
+          This method will save the credentials in the credentials_list
+          '''  
+          Credentials.credentials_list.append(self)   
