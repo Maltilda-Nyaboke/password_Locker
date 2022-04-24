@@ -73,6 +73,14 @@ class Credentials:
           method to display the credentials
           '''
           return cls.credentials_list  
+   @classmethod
+   def verify_user(cls,username,password):
+        current_user = ""
+        for user in User.user_list:
+            if (user.username == username and user.password == password):
+                current_user = user.username
+                
+        return current_user
    
    @classmethod
    def find_credentials(cls,site_name):
