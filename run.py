@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
-import re
+#!/usr/bin/python3.9
 from user import User,Credentials
 
-# def main():
-#     pass
+def main():
+    pass
 
 def create_user(username,password):
     '''
@@ -62,12 +61,9 @@ def main():
 
     print("Hello welcome to")
     
-    
-
-    # while True:
-    #     print("Use these shortcodes to access your account:ca-create account, lg-login,ds-display accounts,fa-locate your account,ex-exit")
 
 
 
-    if __name__ == '__main__':
+
+if __name__ == '__main__':
         main()

@@ -8,7 +8,7 @@ Password Locker is terminal-based application that enables a user to create a ne
 ## Setup Requirements
 
 - Git
-- Python3.8
+- Python3.9
 - Pip
 
 ### Running the Application and cloning the repository
@@ -20,7 +20,7 @@ git clone https://github.com/Maltilda-Nyaboke/week-10.git
 ```
 
 ```
-cd Password-Locker
+cd Ip-ten
 ```
 
 ```
@@ -33,7 +33,7 @@ chmod +x run.py
 
 ### Technologies Used
 
-- Python3.8
+- Python3.9
 
 ## Known Bugs
 
