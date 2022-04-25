@@ -1,17 +1,18 @@
-#!/usr/bin/env python3.9
+#!/usr/bin/env python3
+import re
 from user import User,Credentials
 
-def main():
-    pass
+# def main():
+#     pass
 
-def create_user(username, password):
+def create_user(username,password):
     '''
     Create a new user
     '''
-    new_user = User(username, password)
+    new_user = User(username,password)
     return new_user
 
-def save_user(user):
+def sav_user(user):
     '''
     function to save the user
     '''
@@ -48,17 +49,23 @@ def display_credentials(credentials):
     ''' 
     return Credentials.display_credentials()   
 
-def get_credentials(username):
+def get_credentials(name):
     '''
     function to retrieve credentials
     '''  
-    return Credentials.find_credentials(username)  
+    return Credentials.find_credentials(name)  
 
 def login(username, password):
     return Credentials.verify_user(username, password) 
 
 def main():
-    print("Hello welcome to {}".format(Credentials.site_name))
+
+    print("Hello welcome to")
+    
+    
+
+    # while True:
+    #     print("Use these shortcodes to access your account:ca-create account, lg-login,ds-display accounts,fa-locate your account,ex-exit")
 
 
 
