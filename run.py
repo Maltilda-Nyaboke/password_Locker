@@ -64,14 +64,10 @@ def generate_password(ln):
 
 def main():
 
-    print("Hello welcome to")
+    print("Hello welcome to passlock!")
 
     while True:
-        print("Type:ca-create account", 
-                "lg-login",
-                "da-display accounts",
-                "fa-locate your account",
-                "ex-exit")
+        print("Type:\nca-create account\nlg-login\nex-exit")
         short_code = input().lower()
         if short_code == 'ca':
             print("Enter your username")
@@ -97,10 +93,29 @@ def main():
             user = login(username, password)
             if user == username:
                 print(f'welcome {username}')
-            else: print("Account not found")    
-
-                    # save_credentials(create_credentials())
-                    # print("f{username}of account{site_name}:and password:{password}")
+            else: print("Account not found")
+            while True:
+                print("Type:\ncc-create credential\n da-display accounts\nfa-locate account\ndel-delete account\nex-exit")
+                short_code == input().lower() 
+                if short_code == 'cc':
+                    print("Enter details to create new account")
+                    site_name = input("Account:").strip()
+                    username = input("username:").strip()
+                    
+                    while True:
+                        print("Enter password- ep\n use generated one-gp")
+                        ent_password = input("select:").lower()
+                        if ent_password =='ep':
+                          password = input('Enter password\n').strip()
+                          break
+                        elif ent_password == 'gp':
+                            password = Credentials.gen_password(8)
+                            break
+                        else: print("Invalid password use the shortcodes option")   
+                        print(password)
+                    
+                    save_credentials(create_credentials())
+                    print("f{username}of account{site_name}:and password:{password}")
                     
                     
 
@@ -125,7 +140,7 @@ def main():
         
         
         elif short_code == 'ex':
-             print("Thanksfor visiting")
+             print("Thanks for visiting1")
              print("-"*10)
              break
             
