@@ -1,5 +1,7 @@
 import string
+from random import randint
 import random
+
 
 class User:
    '''
@@ -91,10 +93,10 @@ class Credentials:
              if credential.site_name == site_name:
                   return credential    
 
-   def gen_password():
+   def gen_password(ln):
         chars = "ABCDEFGHLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz1234567890!#~$*/=?@"
         password = " "
-        for i in range(len):
-            password += chars[random.randint(0, len(chars) - 1)]
+        for i in range(ln):
+            password += chars[random.randint(0, len(chars) -1)]
         return password
                             

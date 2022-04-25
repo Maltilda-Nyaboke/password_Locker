@@ -27,7 +27,7 @@ def create_credentials(site_name,username, password):
     '''
     Create  new user"s credentials
     '''
-    new_credentials = Credentials(site_name,username, password)
+    new_credentials = Credentials(site_name,username,password)
     return new_credentials
 
 def save_credentials(credentials):
@@ -42,7 +42,7 @@ def del_credentials(credentials):
     '''
     credentials.delete_credentials()
 
-def display_credentials(credentials):
+def display_credentials():
     '''
     function to display credentials
     ''' 
@@ -57,35 +57,68 @@ def get_credentials(name):
 def login(username, password):
     return Credentials.verify_user(username, password) 
 
+def generate_password(ln):
+    return Credentials.gen_password(ln)
+
+
 def main():
 
     print("Hello welcome to")
 
     while True:
-        print("Use these shortcodes to access your account:ca-create account, lg-login,da-display accounts,fa-locate your account,ex-exit")
+        print("Type:ca-create account", 
+                "lg-login",
+                "da-display accounts",
+                "fa-locate your account",
+                "ex-exit")
         short_code = input().lower()
         if short_code == 'ca':
             print("Enter your username")
             print("-"*10)
             username = input("username\n").strip()
             while True:
-                    print("Enter password('ep')\n use generated one")
-                    ent_password = input("Choice:").lower()
+                    print("Enter password- ep\n use generated one-gp")
+                    ent_password = input("select:").lower()
                     if ent_password =='ep':
                         password = input('Enter password\n').strip()
                         break
                     elif ent_password == 'gp':
-                        password = input('Generate password').strip()
+                        password = Credentials.gen_password(8)
+                        print(password)
+                        break
+                    else: print("Invalid password use the shortcodes option")
+            new_user = create_user(username,password)
+
+        elif short_code == 'lg':
+            print("Enter your account details to proceed")
+            username = input("username: ")
+            password = input("password: ")
+            username = login(username, password)
+            if username == username:
+                print(f'welcome {username}')
+
+                    # save_credentials(create_credentials())
+                    # print("f{username}of account{site_name}:and password:{password}")
+                    
+                    
+
         elif short_code == 'da':
+
             if display_credentials():
-                print("Here is a list of all your accounts")
-                print("\n")
-                
-
                 for credential in display_credentials():
-                    print(f"(Account:credential.site_name,username, password)")
+                    print(f"Account:{credential.site_name} -- Username:{credential.username} -- Password:{credential.password}")           
+                else:
+                    print("There are no saved credentials yet")
 
 
+        elif short_code == 'ex':
+             print("Thanksfor visiting")
+             print("-"*10)
+             break
+            
+        else:
+            print("Please use shortcodes provided")
+        
 
 
 if __name__ == '__main__':
