@@ -1,4 +1,5 @@
 #!/usr/bin/python3.9
+from gettext import find
 from user import User,Credentials
 
 def main():
@@ -93,9 +94,10 @@ def main():
             print("Enter your account details to proceed")
             username = input("username: ")
             password = input("password: ")
-            username = login(username, password)
-            if username == username:
+            user = login(username, password)
+            if user == username:
                 print(f'welcome {username}')
+            else: print("Account not found")    
 
                     # save_credentials(create_credentials())
                     # print("f{username}of account{site_name}:and password:{password}")
@@ -110,7 +112,18 @@ def main():
                 else:
                     print("There are no saved credentials yet")
 
+        
+        elif short_code == 'del':
+            print("Enter account you want to delete")
+            find = input("Account Name: ").strip()
 
+            if get_credentials(find):
+                account = get_credentials(find)
+                del_credentials(account)
+            else: print("Account does not exist")
+        
+        
+        
         elif short_code == 'ex':
              print("Thanksfor visiting")
              print("-"*10)
