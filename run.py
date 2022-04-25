@@ -60,7 +60,18 @@ def login(username, password):
 def main():
 
     print("Hello welcome to")
-    
+
+    while True:
+        print("Use these shortcodes to access your account:ca-create account, lg-login,da-display accounts,fa-locate your account,ex-exit")
+        short_code = input().lower()
+        if short_code == 'ca':
+            print("Enter your username")
+            print("-"*10)
+            username = input("username\n").strip()
+
+        elif short_code == 'da':
+            if display_credentials():
+                print("Here is a list of all your accounts")
 
 
 
