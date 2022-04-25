@@ -68,10 +68,22 @@ def main():
             print("Enter your username")
             print("-"*10)
             username = input("username\n").strip()
-
+            while True:
+                    print("Enter password('ep')\n use generated one")
+                    ent_password = input("Choice:").lower()
+                    if ent_password =='ep':
+                        password = input('Enter password\n').strip()
+                        break
+                    elif ent_password == 'gp':
+                        password = input('Generate password').strip()
         elif short_code == 'da':
             if display_credentials():
                 print("Here is a list of all your accounts")
+                print("\n")
+                
+
+                for credential in display_credentials():
+                    print(f"(Account:credential.site_name,username, password)")
 
 
 
