@@ -49,7 +49,7 @@ def display_credentials():
     ''' 
     return Credentials.display_credentials()   
 
-def get_credentials(name):
+def find_credentials(name):
     '''
     function to retrieve credentials
     '''  
@@ -73,18 +73,26 @@ def main():
             print("Enter your username")
             print("-"*10)
             username = input("username\n").strip()
+    
+
             while True:
                     print("Enter password- ep\n use generated one-gp")
                     ent_password = input("select:").lower()
                     if ent_password =='ep':
                         password = input('Enter password\n').strip()
+                
                         break
                     elif ent_password == 'gp':
                         password = Credentials.gen_password(8)
                         print(password)
                         break
                     else: print("Invalid password use the shortcodes option")
+            save_user = create_user(username, password)
+            print(f"User {username} created successfully")
             new_user = create_user(username,password)
+        elif short_code == 'ex':
+            print("Thanks for registering!")
+            break
 
         elif short_code == 'lg':
             print("Enter your account details to proceed")
@@ -93,10 +101,15 @@ def main():
             user = login(username, password)
             if user == username:
                 print(f'welcome {username}')
-            else: print("Account not found")
+                
+            else: print("enter correct username") 
+        
+
             while True:
                 print("Type:\ncc-create credential\n da-display accounts\nfa-locate account\ndel-delete account\nex-exit")
+                
                 short_code == input().lower() 
+                
                 if short_code == 'cc':
                     print("Enter details to create new account")
                     site_name = input("Account:").strip()
@@ -115,7 +128,7 @@ def main():
                         print(password)
                     
                     save_credentials(create_credentials())
-                    print("f{username}of account{site_name}:and password:{password}")
+                    print(f"Account name:{site_name}\n Username: {username}\n password:{password}")
                     
                     
 
@@ -123,24 +136,29 @@ def main():
 
             if display_credentials():
                 for credential in display_credentials():
-                    print(f"Account:{credential.site_name} -- Username:{credential.username} -- Password:{credential.password}")           
+                    print(f"Account name:{credential.site_name} -- Username:{credential.username} -- Password:{credential.password}")           
                 else:
                     print("There are no saved credentials yet")
 
+        elif short_code == 'fa':
+            print("Enter name of credential you are looking for")
+            find = input("account_name:").strip()
+            
+            if find_credentials(find):
+                account = find_credentials(find)
+                del_credentials(account)
+            else: print("Account does not exist")
         
         elif short_code == 'del':
             print("Enter account you want to delete")
             find = input("Account Name: ").strip()
 
-            if get_credentials(find):
-                account = get_credentials(find)
-                del_credentials(account)
-            else: print("Account does not exist")
+            
         
         
         
         elif short_code == 'ex':
-             print("Thanks for visiting1")
+             print("Thanks for visiting!")
              print("-"*10)
              break
             
